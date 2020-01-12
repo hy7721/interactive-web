@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animatino3</title>
+    <style>
+        @keyframes spaceship-ani {
+            to {
+                background-position: -2550px 0;
+            }
+        }
+        
+        .spaceship {
+            width: 150px;
+            height: 150px;
+            background: url('images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
+            /* 꾸르팁: sprite image 사이즈는 5100px X 300px 이지만 150px X 150px짜리 div에 표현. 5100px를 나누기 2 해서 넣을 수도 있지만 빨리 계산되는 150px을 넣어주고 auto로 해주면 편하지 */
+            animation: spaceship-ani 1s infinite steps(17);
+            /* steps 꾸르팁 ㅠㅠ 너무 멋있다 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animation</h1>
+    <h2>Frame by Frame 만들기</h2>
+    <p>gif로 하면 되는 거 아님? gif는 투명한 알파채널을 지원하지 않기 때문에. 또한 apng도 있지만 지원하지 않는 브라우저가 아직 많다. 또 code로 animation 제어가 가능하기 때문에 너무나 꾸르</p>
+    <p>꾸르팁: 고해상도 이미지 표현을 위해 기존 이미지 사이즈의 2배로 만들어 애플의 레티나 디스플레이 등의 고해상도 디스플레이에서도 px 집적도가 높은 선명한 이미지로 표현이 가능.</p>
+</body>
+<div class="spaceship"></div>
+
+</html>
