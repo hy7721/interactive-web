@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 3D 1</title>
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            height: 80vh;
+            background-color: #fff000;
+            /* perspective: 500px; */
+            /* perspective를 넣어주면 안에 있는 object들이 3D 효과를 가질 수 있음 */
+            /* object의 그 크기와 관계없이 눈 앞에 가까이 있을수록 3D 효과가 극적으로 보일 것. 따라서 perspective의 크기가 작으면 작을 수록 그 효과가 더 극적으로 보일 것 */
+            /* perspective를 world에 주느냐 card에 주느냐에 따라 효과가 크게 다르기 때문에. 원하는 효과에 맞춰서 적용. cf) card에 주면 3개의 object가 모두 균일한 형태로 구현될 것 */
+        }
+        
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 150px;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            /* em은 현재 context의 font-size를 기준으로 */
+            /* rem은 root인 html의 font-size 기준 */
+            /* font-size를 기준으로 그것의 0.5 만큼 border-radius를 주겠다는 의미 */
+            background: red;
+            transform: perspective(500px) rotateY(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS 3D</h1>
+    <p>무대 자체가 3D여야</p>
+
+    <div class="world">
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+    </div>
+</body>
+
+</html>

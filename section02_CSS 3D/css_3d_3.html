@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 3D 3</title>
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            height: 80vh;
+            background-color: #fff000;
+            perspective: 500px;
+        }
+        
+        .card-side {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -75px 0 0 -50px;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 150px;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: 1s;
+        }
+        
+        .card-side-front {
+            z-index: 1;
+            background-color: white;
+        }
+        
+        .card-side-back {
+            transform: rotateY(180deg);
+            background-color: red;
+        }
+        
+        .world:hover .card-side-front {
+            transform: rotateY(180deg);
+        }
+
+        .world:hover .card-side-back {
+            transform: rotateY(360deg);
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>CSS 3D</h1>
+    <div class="world">
+        <div class="card-side card-side-front">F</div>
+        <div class="card-side card-side-back">B</div>
+    </div>
+    <h2>크로스브라우징</h2>
+    <p>webkit 기반으로 만들어진 safari, chrome - webkit 접두어</p>
+    <p>mozila 계열인 Firefox - moz</p>
+    <p>Internet Explorer - ms</p>
+    <p>Opera - o</p>
+    <h3>vendor prefix 기입 순서</h3>
+    <p>접두어 붙은 애들 끼리의 순서는 중요하지 않음. 그러나 접두어가 안 붙은 표준속성은 맨 마지막에 써주는 게 좋다. </p>
+    <!-- 현재 페이지는 Chrome에 최적화 되어 있어 IE에서는 preserve-3d 효과가 적용되지 않아 화면이 제대로 구현되지 않음. 따라서 .card element를 지우고 .card-side를 직접 돌리게 함. F는 (0deg > 180deg), B는 (180deg > 360deg)로. -->
+</body>
+
+</html>

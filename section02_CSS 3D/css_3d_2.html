@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 3D 2</title>
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            height: 80vh;
+            background-color: #fff000;
+            perspective: 500px;
+        }
+        
+        .card {
+            position: relative;
+            width: 100px;
+            height: 150px;
+            transform: rotateY(0deg);
+            /* 0deg 써주는 게 좋다! default라도 상태도 써주게 되면 브라우저에서 랜더링 했을 때 준비를 할 수 있기 때문에 성능 향상에 조금이라도 도움을 줄 수 있다 */
+            transition: 1s;
+            transform-style: preserve-3d;
+            /* world에 perspective 속성을 넣어줌으로써 3D 효과를 넣었지만, 여러 개로 쌓여있다 보니까 그 효과가 card-side에 제대로 미치지 못한다고 이해해도 됨 */
+            /* 따라서 card-side를 감싸고 있는 부모에 preserve-3d 속성을 세팅 */
+            transform-origin: left;
+            /* 지금은 카드를 뒤집고 있지만 만약에 문을 여는 효과를 주고 싶다면 기준점을 0% 혹은 left로 잡아주면 됨 */
+        }
+        
+        .card-side {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            backface-visibility: hidden;
+            /* card에 preserve-3d 속성을 넣어도 안 보여도 될 F/B의 뒷면이 뒤집힌 채로 보이기 때문에 안 보이게 해주면 됨 */
+        }
+        
+        .card-side-front {
+            z-index: 1;
+            background-color: white;
+        }
+        
+        .card-side-back {
+            transform: rotateY(180deg);
+            background-color: red;
+        }
+        /* 카드의 뒷면 같은 경우는 rotateY(180deg)로 뒤집어서 B글씨가 보이도록 해줘야 */
+        
+        .world:hover .card {
+            transform: rotateY(180deg);
+            /* 문이 열리는 효과를 주려면 -180deg 주면 예쁨 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS 3D</h1>
+    <div class="world">
+        <div class="card">
+            <div class="card-side card-side-front">F</div>
+            <div class="card-side card-side-back">B</div>
+        </div>
+    </div>
+</body>
+
+</html>
