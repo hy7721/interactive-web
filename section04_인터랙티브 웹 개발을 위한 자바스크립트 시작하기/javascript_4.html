@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript - DOM Script 3</title>
+</head>
+<body>
+    <script>
+        const pElem = document.createElement('p')
+        // 새로 만들기
+        pElem
+        // <p></p> 출력
+
+        pElem.innerHTML = '<a href='#'>안녕</a>'
+        // HTML 태그를 문자열로 넣으면 삽입됨
+        pElem
+        // <p><a href="#">안녕</a></p> 출력
+
+        const charactersElem = document.querySelector('.characters')
+        charactersElem.appendChild(pElem)
+        // .characters 의 마지막 자식으로 pElem을 삽입
+
+        charactersElem.removeChild(document.querySelector('.b'))
+        // 클래스 제거
+
+        // 클래스 추가하기
+        const ilbuni = document.querySelector('.ilbuni')
+        // 첫 번째꺼만 선택이 되겠지
+        ilbuni.classList.add('.special')
+        // special이라는 클래스 추가
+
+        // ilbuni.classList.add('.special') 과 아래의 차이점
+        ilbuni.className = 'special'
+        // 얘는 기존에 있던 class를 보존하지 않은 상태로 class명을 special로 바꿔버림
+
+        const ilbuni = document.querySelector('.ilbuni')
+        ilbuni.classList.remove('ilbuni')
+        // class 제거
+
+        ilbuni.classList.toggle('ilbuni')
+        // toggle : ilbuni 클래스가 없으면 추가하고 있으면 제거
+    </script>
+</body>
+</html>

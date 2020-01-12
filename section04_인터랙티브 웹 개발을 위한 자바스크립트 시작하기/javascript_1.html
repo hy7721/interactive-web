@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript 변수 유효범위</title>
+</head>
+<body>
+    <script>
+        // ECMAScript 2015 버전의 변수 선언ㅎㅎ 
+        let a = 100;
+        a = 200;
+
+        const a = 100;
+        // const로 변수 선언을 할 수 있지만, const는 상수. 상수=값이 안 변하는 것.
+        // 변수의 scope(유효범위) - var는 함수단위. 함수의 밖에 있느냐 안에 있느냐. 안에서는 O. 밖에서는 X. let/const는 중괄호범위.
+
+        if(true){
+            var a = 100;
+        }
+        // if는 함수가 아니기 때문에 잘 찍힘.
+
+        if(true){
+            let a = 100;
+        }
+        // 바깥에서는 {} 안에 있는 걸 모르기 때문에 에러남.
+    </script>
+</body>
+</html>
