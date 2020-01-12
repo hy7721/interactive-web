@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Flex</title>
+    <style>
+        .container {
+            display: flex;
+            /* display: flex 하는 순간 inline 속성 처럼 나란히 배열됨. 또 높이값도 늘어났음. (원래 높이는 컨텐츠 만큼만 잡히는데)*/
+            flex-direction: row;
+            /* 기본값이 row. 이거 헷갈릴 수 있음 ㅠㅠ 오뎅꼬치 생각해. 축의 방향이 바뀐 것. */
+            /* row나 column이나 뒤에 -reverse를 붙여주면 반대로 정렬됨 */
+
+            justify-content: center;
+            /* 축 위에서 정렬 */
+            /* flex-start, flex-end, space-between, space-around */
+            align-items: center;
+            /* 축의 수직방향으로 정렬 */
+            /* stretch가 기본 값. 이것 때문에 늘어나 있는 것. */
+            height: 80vh;
+            background-color: #333;
+        }
+
+        .item {
+            flex-grow: 1;
+            /* 여백을 동일한 너비로 함. 1:1:1:1:1 */
+            flex-basis: 0;
+            /* 원래 컨텐츠가 차지하는 영역의 비율을 어떻게 할 것인가. */
+            /* 기본값은 auto. 축약형 flex로 써주게 되면 기본값은 0%. */
+            padding: 2em;
+            border: 3px solid #000;
+            background-color: #fff;
+        }
+
+        /* .item:nth-child(1) { flex-grow: 1; }
+        .item:nth-child(2) { flex-grow: 2; }
+        .item:nth-child(3) { flex-grow: 3; }
+        .item:nth-child(4) { flex-grow: 4; }
+        .item:nth-child(5) { flex-grow: 5; } */
+        /* 여백의 비율이 1:2:3:4:5 라는 의미 */
+    </style>
+</head>
+<body>
+    <h1>CSS Flex</h1>
+    <p>grid와 flex-box를 적절히 활용할 것</p>
+    <p>grid는 레이아웃을 격자로 구성. 가로축 and 세로축.</p>
+    <p>flex는 축이 한 방향. 가로 or 세로. grid는 현재 지원하지 않는 브라우저가 많다.</p>
+    <p>grid로 페이지 골격을 잡고 내부 요소는 flex로 정렬한다는지</p>
+    <div class="container">
+        <div class="item">A</div>
+        <div class="item">BB</div>
+        <div class="item">CCC</div>
+        <div class="item">DDDD</div>
+        <div class="item">EEEEE</div>
+    </div>
+</body>
+</html>
