@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>event의 기본 동작</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .characters {
+            background-color: yellow;
+        }
+
+        .ilbuni {
+            width: 100px;
+        }
+
+        .characters .ilbuni {
+            display: inline-block;
+        }
+
+        .special {
+            border: 10px dashed rebeccapurple;
+        }
+    </style>
+    <script>
+        // 문서 load가 끝났을 떄 알려주는 이벤트
+        // 문서 전체는 window 전역객체로
+        // load event는 이 문서에 있는 리소스가 전부 로딩 될떄까지 기다리므로 비효율적
+        // but DOMContentLoaded는 DOM 구조만 로드 되면 바로 실행시켜줌 (IE9부터 지원)
+        // window.addEventListener('load', function(){ 그래서 얘 대신에
+
+        window.addEventListener('DOMContentLoaded', function(){
+            const ilbuni = document.querySelector('.ilbuni:nth-child(3)');
+            
+            function clickIlbuniHandler(){
+                ilbuni.classList.toggle('special');
+            }
+            
+            ilbuni.addEventListener('click', clickIlbuniHandler);
+        })
+    </script>
+</head>
+<body>
+    <div class="characters">
+        <div class="ilbuni a"><img src="images/ilbuni_0.png" alt=""></div>
+        <div class="ilbuni b"><img src="images/ilbuni_1.png" alt=""></div>
+        <div class="ilbuni c"><img src="images/ilbuni_2.png" alt=""></div>
+        <div class="ilbuni d"><img src="images/ilbuni_3.png" alt=""></div>
+    </div>
+</body>
+</html>

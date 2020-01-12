@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this와 이벤트 객체</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .characters {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: yellow;
+        }
+
+        .ilbuni {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .characters .ilbuni {
+            display: inline-block;
+        }
+
+        .special {
+            border: 10px dashed rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div class="characters">
+        <div class="ilbuni a"><img src="images/ilbuni_0.png" alt=""></div>
+        <div class="ilbuni b"><img src="images/ilbuni_1.png" alt=""></div>
+        <div class="ilbuni c"><img src="images/ilbuni_2.png" alt=""></div>
+        <div class="ilbuni d"><img src="images/ilbuni_3.png" alt=""></div>
+    </div>
+    <script>
+        // 예를 들어 어떤 게 클릭 되었는지 실험해 볼 수 있겠지
+        (function(){
+            const characters = document.querySelector('.characters');
+        
+            function clickHandler(){
+                console.log(this);
+            }
+            
+            characters.addEventListener('click', clickHandler);
+        })();
+    </script>
+</body>
+</html>

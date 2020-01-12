@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>event의 기본 동작</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .characters {
+            background-color: yellow;
+        }
+
+        .ilbuni {
+            width: 100px;
+        }
+
+        .characters .ilbuni {
+            display: inline-block;
+        }
+
+        .special {
+            border: 10px dashed rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div class="characters">
+        <div class="ilbuni a"><img src="images/ilbuni_0.png" alt=""></div>
+        <div class="ilbuni b"><img src="images/ilbuni_1.png" alt=""></div>
+        <div class="ilbuni c"><img src="images/ilbuni_2.png" alt=""></div>
+        <div class="ilbuni d"><img src="images/ilbuni_3.png" alt=""></div>
+    </div>
+    <p>참고. ECMAScript 2015에서는.. 아래의 3가지 모두 가능</p>
+    <code>
+        function clickIlbuniHandler(){};
+        <br>
+        const clickIlbuniHandler = function(){};
+        <br>
+        const clickIlbuniHandler = () => {};
+    </code>
+    <script>
+        // 지금 ilbuni, clickIlbuniHandler는 전역변수. Javascript를 쓸 때는 전역변수를 남발하면 안 됨. 충돌의 위험성.
+        // 전역변수가 안 되려면? 그 전체를 함수에 넣으면.
+
+        (function(){
+            const ilbuni = document.querySelector('.ilbuni:nth-child(3)');
+        
+            function clickIlbuniHandler(){
+                ilbuni.classList.toggle('special');
+            }
+            
+            ilbuni.addEventListener('click', clickIlbuniHandler);
+        })();
+        // 함수 전체를 괄호로 감싸고, 그 감싼 함수 뒤에 호출연산자(); 를 쓰면 에러가 나지 않음.
+    </script>
+</body>
+</html>
