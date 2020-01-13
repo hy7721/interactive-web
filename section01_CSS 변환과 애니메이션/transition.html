@@ -13,20 +13,18 @@
     .box {
       width: 100px;
       height: 100px;
-      border: 2px solid ;
-        /* transition: 1s; */
-        /* transition-property: all; transition-duration: 1s; transition-timing-function: ease; transition-delay: 0s; 의 축약형태 */
+      border: 2px solid #333;
+        /* transition: 1s; 는 transition-property: all; transition-duration: 1s; transition-timing-function: ease; transition-delay: 0s; 의 축약형태 */
 
-        /* transition: 1s cubic-bezier(0.08, 1.26, 0, 1.21); */
+        /* transition: 1s cubic-bezier(0.08, 1.26, 0, 1.21); 로 chrome 개발자 도구로 수정 가능 */
 
-        transition: 1s 2s;
+        /* transition: 1s 2s; */
         /* transition-duration / transition-delay */
       background: rgba(255,255,0,0.7);
     }
 
     .box:hover {
       transform: scale(2) rotate(15deg);
-
     }
   </style>
 </head>
