@@ -13,25 +13,29 @@
     .box {
       width: 100px;
       height: 100px;
-      border: 2px solid ;
-        /* transition: 1s; */
-        /* transition-property: all; transition-duration: 1s; transition-timing-function: ease; transition-delay: 0s; 의 축약형태 */
-
-        /* transition: 1s cubic-bezier(0.08, 1.26, 0, 1.21); */
-
-        transition: 1s 2s;
-        /* transition-duration / transition-delay */
+      border: 2px solid #333;
       background: rgba(255,255,0,0.7);
     }
 
     .box:hover {
       transform: scale(2) rotate(15deg);
+      /* scale(2) 와 width: 200px; height: 200px; 과의 차이점 알고 있을 것. > 다른 개체들에게 영향을 주느냐 안 주느냐.
+      width/height 2배로 하는 건 개체들이 밀림
+      scale은 영향 안 줌. transform을 쓰게 되면 연산 하는 것도 적고 성능도 좋다! */
 
+      /* transform: skew(-30deg); */
+      
+      /* transform: translate(30px, 10px); */
+
+      /* transform: scale(1.5); */
+      /* transform-origin: 12% 12%; */
+      /* transform-origin에 left top / right top 이나 px 등을 넣어도 제어가 가능 */
     }
   </style>
 </head>
 <body>
-  <h1>CSS Transition</h1>
+  <h1>CSS Transform</h1>
+  <p>GPU를 사용(하드웨어 가속을 이용) 하여 성능이 좋다.</p>
   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus ratione, tenetur consectetur porro praesentium nesciunt dignissimos? Quisquam architecto odio maiores, est ab vel quaerat obcaecati, ut aut voluptates, fuga earum?</p>
   <div class="box-container">
     <div class="box">A</div>
